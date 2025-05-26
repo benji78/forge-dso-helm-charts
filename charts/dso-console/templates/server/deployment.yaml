@@ -169,8 +169,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-      {{- if .Values.server.extraCa.name }}
       - name: config
+        {{- if .Values.server.extraCa.name }}
         projected:
           sources:
           - configMap:
@@ -178,7 +178,7 @@ spec:
               items:
               - key: {{ .Values.server.extraCa.key }}
                 path: {{ .Values.server.extraCa.mountSubPath }}
-      {{- end }}
+        {{- end }}
       {{- if .Values.server.dbDataCm }}
       - name: imports
         configMap:
