@@ -1,0 +1,169 @@
+apiVersion: v1
+entries:
+  cpn-backup-utils:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-05-26T14:46:10.049284942Z"
+    description: A Helm chart for effortless deployment of backup utilities.
+    digest: c12c2277a60a617567cf9e38fabc685f0d69c6f82df58498bcbc3c241e1f3206
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: cpn-backup-utils
+    sources:
+    - https://github.com/cloud-pi-native/helm-charts
+    - https://github.com/this-is-tobi/tools
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/cpn-backup-utils-1.0.0/cpn-backup-utils-1.0.0.tgz
+    version: 1.0.0
+  cpn-cnpg:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-05-26T14:46:10.241511534Z"
+    dependencies:
+    - alias: cnpg-operator
+      condition: cnpg-operator.enabled
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.23.0
+    description: A Helm Chart to deploy easily a CNPG cluster
+    digest: a9cb52f8894c68a175726e91e4dbcbc44d9d70b9f4749ad1ffa6e9f3d222aed7
+    home: https://cloud-pi-native.fr
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: cpn-cnpg
+    sources:
+    - https://github.com/cloud-pi-native/helm-charts
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/cpn-cnpg-2.3.0/cpn-cnpg-2.3.0.tgz
+    version: 2.3.0
+  cpn-console:
+  - apiVersion: v2
+    appVersion: 9.3.1
+    created: "2025-05-26T14:46:10.452393163Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.7.3
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.3.0
+    - alias: cnpg-operator
+      condition: cnpg-operator.enabled
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.21.5
+    description: A Helm chart to deploy Cloud Pi Native Console
+    digest: b6a1666dc501a18edd21ebcf27d2da0bb278302e35eadc0fb84637372dc16970
+    home: https://cloud-pi-native.fr
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: cpn-console
+    sources:
+    - https://github.com/cloud-pi-native/helm-charts
+    - https://github.com/cloud-pi-native/console
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/cpn-console-2.1.5/cpn-console-2.1.5.tgz
+    version: 2.1.5
+  dso-argocd:
+  - apiVersion: v2
+    appVersion: 2.12.3
+    created: "2025-05-26T14:46:10.65162732Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 7.5.2
+    - condition: vso.install
+      name: vault-secrets-operator
+      repository: https://helm.releases.hashicorp.com
+      version: 0.8.1
+    digest: 4df47d68a2cb4f44e57145023943c105f68b38e62cf4939ee6277674302a6bb0
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: dso-argocd
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/dso-argocd-1.2.1/dso-argocd-1.2.1.tgz
+    version: 1.2.1
+  dso-env:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-05-26T14:46:10.857579169Z"
+    description: Creates argocd Project and Applications to deploy DSO project repositories.
+    digest: 0062076db37460568fab4ab95635cbd68e9e34b3793598b4a2589c088b389562
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: dso-env
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/dso-env-1.4.0/dso-env-1.4.0.tgz
+    version: 1.4.0
+  dso-grafana:
+  - apiVersion: v2
+    created: "2025-05-26T14:46:11.097040596Z"
+    dependencies:
+    - name: grafana-operator
+      repository: oci://ghcr.io/grafana/helm-charts
+      version: v5.10.0
+    description: This Helm chart deploy Grafana instances and default dashboards for
+      each projects read from values file.
+    digest: fafcf7ff43cec3006a1efb743a010a2a9514a67eff8c4fb274d6aedcaa0804aa
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    - email: r.ducamp@gmail.com
+      name: tcheksa62
+    name: dso-grafana
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/dso-grafana-1.2.1/dso-grafana-1.2.1.tgz
+    version: 1.2.1
+  dso-ns:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-05-26T14:46:11.294495321Z"
+    description: A Helm chart to create all the necessary resources for deploying
+      applications by the DSO console (namespace, secrets, quota, ...).
+    digest: 2288bb3979d0902a953a2e1a8cbdb0960a974cfc11e884fba21ec4181a559ab1
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    name: dso-ns
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/dso-ns-1.1.1/dso-ns-1.1.1.tgz
+    version: 1.1.1
+  observatorium:
+  - apiVersion: v2
+    appVersion: main-2025-02-10-1bcf722
+    created: "2025-05-26T14:46:11.476142732Z"
+    description: This Helm chart deploy Observatorium API and help to manage tenant
+      from values file.
+    digest: 9d4d5dd632f7720ff892bb0032b03fd3dd3d2d47ded296af75a219a72c3c2087
+    maintainers:
+    - email: thibault.colin@interieur.gouv.fr
+      name: this-is-tobi
+      url: https://this-is-tobi.com
+    - email: r.ducamp@gmail.com
+      name: tcheksa62
+    name: observatorium
+    type: application
+    urls:
+    - https://github.com/benji78/forge-dso-helm-charts/releases/download/observatorium-0.5.2/observatorium-0.5.2.tgz
+    version: 0.5.2
+generated: "2025-05-26T14:46:11.476152781Z"
